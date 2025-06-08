@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Registration</title>
+</head>
+<body>
+<h1>Registration</h1>
+    <form method="POST" action="/submit">
+        <label>Name</label>
+        <input type="text" name="name" placeholder="Enter your name"><br>
+        <label>Username</label>
+        <input type="text" name="username" placeholder="Create a username"><br>
+        {%if username not in website_user%}
+            <label>Password</label>
+            <input type="text" name="password" placeholder="Create a password"><br>
+            <input type="submit" value="REGISTER">
+        {%else%}
+            <p>Username already taken</p>
+        {%endif%}
+    </form>
+</body>
+</html>
