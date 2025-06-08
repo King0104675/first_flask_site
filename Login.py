@@ -8,7 +8,7 @@ app.secret_key = 'king is great'
 DB_NAME = 'users.db'
 
 def init_db():
-    conn = sqlite3.connect(DB_NAME)
+    conn = sqlite3.connect("users.db")
     cursor = conn.cursor()
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS users (
@@ -37,7 +37,7 @@ def submit():
     username = request.form.get('username')
     password = request.form.get('password')
 
-    conn = sqlite3.connect(DB_NAME)
+    conn = sqlite3.connect("users.db")
     cursor = conn.cursor()
 
     try:
@@ -59,7 +59,7 @@ def submit1():
     username = request.form.get('username')
     password = request.form.get('password')
 
-    conn = sqlite3.connect(DB_NAME)
+    conn = sqlite3.connect("users.db")
     cursor = conn.cursor()
     cursor.execute("SELECT name FROM users WHERE username = ? AND password = ?", (username, password))
     user = cursor.fetchone()
